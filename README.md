@@ -47,13 +47,14 @@ Open your brower and visit:
 http://localhost:5173
 
 ## Project Structure
-src/
-├── components/        Reusable UI components
-├── context/          Context providers
-├── pages/            Page components
-├── services/         API services
-├── App.jsx           Main app component
-└── main.jsx          Entry point
+## Project Structure 📂
+
+- `src/components/` - Reusable UI components
+- `src/context/` - Context providers
+- `src/pages/` - Page components
+- `src/services/` - API services
+- `src/App.jsx` - Main app component
+- `src/main.jsx` - Entry point
 
 ## Deployment 🚀
 This project can be easily deployed to:
