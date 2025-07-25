@@ -46,7 +46,7 @@ npm run dev
 Open your brower and visit: 
 http://localhost:5173
 
-##Project Structure
+## Project Structure
 src/
 ├── components/       # Reusable UI components
 ├── context/         # Context providers
@@ -55,7 +55,7 @@ src/
 ├── App.jsx          # Main app component
 └── main.jsx         # Entry point
 
-##Deployment 🚀
+## Deployment 🚀
 This project can be easily deployed to:
 
 Vercel
