@@ -48,12 +48,12 @@ http://localhost:5173
 
 ## Project Structure
 src/
-├── components/       # Reusable UI components
-├── context/         # Context providers
-├── pages/           # Page components
-├── services/        # API services
-├── App.jsx          # Main app component
-└── main.jsx         # Entry point
+├── components/        Reusable UI components
+├── context/          Context providers
+├── pages/            Page components
+├── services/         API services
+├── App.jsx           Main app component
+└── main.jsx          Entry point
 
 ## Deployment 🚀
 This project can be easily deployed to:
