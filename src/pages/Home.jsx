@@ -5,6 +5,7 @@ import {
   getRandomMeal,
   getMealsByCategory,
   listCategories,
+  getMealsByFirstLetter,
 } from "../services/mealApi";
 import MealCard from "../components/MealCard";
 import SearchBar from "../components/SearchBar";
@@ -32,7 +33,23 @@ function Home() {
         console.error("Failed to fetch categories:", error);
       }
     };
+
+    const handleShowingMeals = async () => {
+    setLoading(true);
+    try {
+      const letter = String.fromCharCode(97 + Math.floor(Math.random() * 26));
+    const results = await getMealsByFirstLetter(letter);
+    setMeals(results);
+    } catch (error) {
+      setError(
+        `Failed to fetch meals by first letter: ${error.message || "Please try again."}`
+      )
+    } finally {
+      setLoading(false);
+    }
+  }
     fetchCategories();
+    handleShowingMeals();
   }, []);
 
   const handleSearch = async (query) => {
@@ -125,22 +142,27 @@ function Home() {
           <CardContent className="py-8 text-center">
             <p className="text-muted-foreground">
               Search for meals by name, ingredient, or select a category
-            </p>
+            </p>      
           </CardContent>
         </Card>
       )}
 
       {!loading && meals.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {meals.map((meal) => (
-            <MealCard
-              key={meal.idMeal}
-              meal={meal}
-              onClick={() => navigate(`/meal/${meal.idMeal}`)}
-            />
-          ))}
-        </div>
-      )}
+     <div> 
+    <h2 className="text-lg font-bold text-center mb-4">
+      Search for meals by name, ingredient, or select a category
+    </h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {meals.map((meal) => (
+        <MealCard
+          key={meal.idMeal}
+          meal={meal}
+          onClick={() => navigate(`/meal/${meal.idMeal}`)}
+        />
+      ))}
+    </div>
+  </div>
+)}
     </div>
   );
 }

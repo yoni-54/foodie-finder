@@ -11,7 +11,7 @@ function Favorites() {
   return (
     <div className="container py-8 space-y-6">
       <CardHeader>
-        <CardTitle className="text-2xl">Your Favorite Meals</CardTitle>
+        <CardTitle className="text-2xl font-bold">Your Favorite Meals</CardTitle>
       </CardHeader>
 
       {favorites.length === 0 ? (

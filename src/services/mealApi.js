@@ -42,6 +42,16 @@ export const getMealsByCategory = async (category) => {
   }
 };
 
+export const getMealsByFirstLetter = async (letter) => {
+  try {
+    const response = await axios.get(`${API_BASE}search.php?f=${letter}`);
+    return response.data.meals || [];
+  } catch (error) {
+    console.error("Error fetching meals by first letter:", error);
+    return [];
+  }
+}
+
 export const listCategories = async () => {
   try {
     const response = await axios.get(`${API_BASE}list.php?c=list`);
