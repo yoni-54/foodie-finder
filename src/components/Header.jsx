@@ -11,26 +11,25 @@ function Header() {
       <div className="container flex h-16 items-center justify-between px-4">
         <Link 
           to="/" 
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-1 group sm:gap-2"
         >
-          <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-            <ChefHat className="h-6 w-6 text-primary" />
+          <div className="p-1 sm:p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+            <ChefHat className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
           </div>
-          <span className="text-xl font-bold bg-gradient-to-r from-primary to-amber-600 bg-clip-text text-transparent">
+          <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-primary to-amber-600 bg-clip-text text-transparent">
             FoodieFinder
           </span>
         </Link>
-
-        <nav className="flex items-center gap-1">
+        <nav className="flex items-center gap-0.5 sm:gap-1">
           <Button 
             asChild 
             variant={activePath === "/" ? "default" : "ghost"} 
             size="sm"
-            className="gap-1.5 px-4 rounded-lg"
+            className="gap-1 px-3 sm:px-4 rounded-lg"
           >
-            <Link to="/">
-              <Home className="h-4 w-4" />
-              <span>Home</span>
+            <Link to="/" className="flex items-center">
+              <Home className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span className="sr-only sm:not-sr-only">Home</span>
             </Link>
           </Button>
           
@@ -38,11 +37,11 @@ function Header() {
             asChild 
             variant={activePath === "/favorites" ? "default" : "ghost"} 
             size="sm"
-            className="gap-1.5 px-4 rounded-lg"
+            className="gap-1 px-3 sm:px-4 rounded-lg"
           >
-            <Link to="/favorites">
-              <Heart className="h-4 w-4" />
-              <span>Favorites</span>
+            <Link to="/favorites" className="flex items-center">
+              <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span className="sr-only sm:not-sr-only">Favorites</span>
             </Link>
           </Button>
         </nav>
