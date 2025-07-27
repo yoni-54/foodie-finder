@@ -20,30 +20,33 @@ function SearchBar({ onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex-1">
-      <div className="relative flex gap-2">
+    <form onSubmit={handleSubmit} className="w-full">
+      <div className="flex flex-col sm:flex-row gap-3 w-full">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <Search className="h-5 w-5 text-muted-foreground" />
+          </div>
           <Input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for meals by name, ingredient..."
-            className="flex-1 pl-10 pr-4 py-2 h-11 rounded-lg bg-background shadow-sm focus-visible:ring-2 focus-visible:ring-primary/50 transition-all"
+            className="w-full pl-10 pr-4 py-2 h-12 text-base rounded-lg bg-background shadow-sm focus-visible:ring-2 focus-visible:ring-primary/50 transition-all"
           />
         </div>
+
         <Button 
           type="submit" 
-          className="h-11 px-6 rounded-lg bg-gradient-to-r from-primary to-amber-600 text-white shadow-md hover:shadow-lg transition-shadow"
+          className="h-12 px-6 sm:w-auto w-full rounded-lg bg-gradient-to-r from-primary to-amber-600 text-white shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
           disabled={isSearching || !query.trim()}
         >
           {isSearching ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
+            <Loader2 className="h-5 w-5 animate-spin" />
           ) : (
-            <>
-              <Search className="h-4 w-4 mr-2" />
-              Search
-            </>
+            <div className="flex items-center gap-2">
+              <Search className="h-5 w-5" />
+              <span className="text-sm sm:text-base">Search</span>
+            </div>
           )}
         </Button>
       </div>
