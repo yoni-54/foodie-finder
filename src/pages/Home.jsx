@@ -104,24 +104,30 @@ function Home() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Card className="mb-8">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold">
-            Discover Delicious Meals
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
-            <SearchBar onSearch={handleSearch} />
-            <RandomMealButton onClick={handleRandomMeal} />
-          </div>
+      <Card className="mb-8 shadow-lg">
+  <CardHeader>
+    <CardTitle className="text-2xl font-bold">
+      Discover Delicious Meals
+    </CardTitle>
+  </CardHeader>
+  <CardContent className="p-6">
+    <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-end md:justify-between gap-4">
+      <div className="flex-1 min-w-0">
+        <SearchBar onSearch={handleSearch} />
+      </div>
+      <div className="md:w-auto">
+        <RandomMealButton onClick={handleRandomMeal} />
+      </div>
+    </div>
 
-          <CategoryFilter
-            categories={categories}
-            onSelect={handleCategorySelect}
-          />
-        </CardContent>
-      </Card>
+    <div className="mt-6">
+      <CategoryFilter
+        categories={categories}
+        onSelect={handleCategorySelect}
+      />
+    </div>
+  </CardContent>
+</Card>
 
       {loading && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
